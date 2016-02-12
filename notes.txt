@@ -1,0 +1,3 @@
+React.createClass allows defining class that contains an component.
+always requires render function. whatever the render fn returns is displayed
+on screen.
