@@ -1,6 +1,7 @@
-var App = console.log('test browserify');
+//entrypoint to the application
+$ = jQuery = require('jquery');
+var React = require('react');
+var Home = require('./components/home')
 
-// browserify uses commonjs pattern (module.exports at bottom) to define
-// what the file exports. Goes through all utilized files and wraps it up
-// into its own context. Therefore, the exported objects will not be global
-module.exports = App;
+// take the Home component and attach it to the app ID
+React.render(<Home />, document.getElementById('example'));
