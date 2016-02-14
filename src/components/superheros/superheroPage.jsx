@@ -2,42 +2,28 @@
 
 var React = require('react');
 var SuperheroApi = require('../../api/superheroApi.jsx');
+var SuperheroList = require('./superheroList.jsx');
 
 var superheroPage = React.createClass({
+
   getInitialState: function () {
     return { superheros: [] };
   },
-  componentWillMount: function() {
-    this.setState({ superheros: SuperheroApi.getAllSuperheros() });
+  componentDidMount: function() {
+    if (this.isMounted()) {
+      this.setState({ superheros: SuperheroApi.getAllSuperheros() });
+  } else {
+    console.log('superheropage component did not mount!');
+    }
   },
   render: function() {
-
-  var createSuperheroRow = function(hero) {
-        return (
-        <tr key={hero.id}>
-          <td>{hero.firstName} {hero.lastName}</td>
-          <td>{hero.superheroName}</td>
-          <td><a href={"/#heros/" + hero.id}>{hero.id}</a></td>
-        </tr>
-      );
-    }
-
     return (
-      <table className='table table-striped'>
-        <thead>
-          <tr>
-            <th>Real Name</th>
-            <th>Superhero Name</th>
-            <th>Id</th>
-            </tr>
-        </thead>
-        <tbody>
-          {this.state.superheros.map(createSuperheroRow, this)}
-        </tbody>
-      </table>
-
-    );
+    <div>
+      <h1>list of superheros:</h1>
+      <SuperheroList superheros={this.state.superheros}/>
+    </div>
+  );
   }
-})
+});
 
 module.exports = superheroPage;
