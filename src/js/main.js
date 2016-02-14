@@ -3,8 +3,10 @@ $ = jQuery = require('jquery');
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-var aboutPage = require('../components/about/aboutPage');
-var homePage = require('../components/home');
+var aboutPage = require('../components/about/aboutPage.jsx');
+var homePage = require('../components/home.jsx');
+var Header = require('../components/common/header.jsx');
+var Footer = require('../components/common/footer.jsx');
 
 console.log('test?');
 var App = React.createClass({
@@ -17,15 +19,16 @@ var App = React.createClass({
       default : Child = homePage;
     }
 
-    return (<div> <Child/></div>);
+    return (<div className="container"><Child /></div>);
   }
 });
-
 
 function render() {
   console.log('wot');
   var route = window.location.hash.substr(1);
-  ReactDOM.render(<App route={route}/>, document.getElementById('example'));
+  ReactDOM.render(<Header/>, document.getElementById('header'));
+  ReactDOM.render(<App route={route}/>, document.getElementById('content'));
+  ReactDOM.render(<Footer/>, document.getElementById('footer'));
 }
 
 window.addEventListener('hashchange', render);
