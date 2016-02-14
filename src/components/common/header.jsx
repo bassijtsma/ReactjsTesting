@@ -17,10 +17,10 @@ var Header = React.createClass({
                 </div>
                 <div id="navbar" className="navbar-collapse collapse">
                   <ul className="nav navbar-nav">
-                    // <li className="active"><a href="#">Home</a></li>
+                    {/* <li className="active"><a href="#">Home</a></li> */}
                     <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#superheros">Superheros</a></li>
                   </ul>
 
                 </div>

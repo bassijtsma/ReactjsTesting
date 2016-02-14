@@ -7,15 +7,16 @@ var aboutPage = require('../components/about/aboutPage.jsx');
 var homePage = require('../components/home.jsx');
 var Header = require('../components/common/header.jsx');
 var Footer = require('../components/common/footer.jsx');
+var superheroPage = require('../components/superheros/superheroPage.jsx');
 
-console.log('test?');
 var App = React.createClass({
   render: function() {
     var Child;
-    console.log('hoi');
 
     switch(this.props.route) {
       case 'about' : Child = aboutPage; break;
+      case 'superheros' : Child = superheroPage; break;
+      case '' : Child = homePage; break;
       default : Child = homePage;
     }
 
