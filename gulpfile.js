@@ -58,14 +58,15 @@ gulp.task('css', function() {
 // and bind to console to spit out errors that occur. bundle wil lbe called
 // bundle.js
 gulp.task('js', function() {
-  browserify(config.paths.mainJs)
-    .transform(babel)
+  browserify(config.paths.mainJs, {debug : true})
+    .transform("babelify", {presets: ["es2015", "react"]})
     .bundle()
     .on('error', console.error.bind(console))
     .pipe(source("bundle.js"))
     .pipe(gulp.dest(config.paths.dist + '/js'))
     .pipe(connect.reload());
 })
+
 
 gulp.task('lint'), function() {
   return gulp(config.paths.js)
@@ -77,7 +78,8 @@ gulp.task('lint'), function() {
 // Watch the html paths, and whenever changes occur run the html task
 gulp.task('watch', function() {
   gulp.watch(config.paths.html, ['html']);
-  gulp.watch(config.paths.mainJs, ['js', 'lint'])
+  gulp.watch(config.paths.mainJs, ['js'])
+  gulp.watch(config.paths.js, ['js', 'lint'])
   gulp.watch(config.paths.css, ['css'])
 })
 

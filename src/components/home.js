@@ -6,11 +6,11 @@ var Home = React.createClass({
   render: function() {
     return (
       <div className="jumbotron">
-        <h1>testy</h1>
+        <h1>test</h1>
 
       </div>
     );
   }
-})
+});
 
 module.exports = Home;
