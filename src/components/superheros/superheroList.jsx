@@ -3,6 +3,9 @@
 var React = require('react');
 
 var SuperheroList = React.createClass({
+  propTypes: {
+    superheros: React.propTypes.array.isRequired
+  },
   render : function() {
 
     console.log('props');
