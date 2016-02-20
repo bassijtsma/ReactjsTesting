@@ -3,9 +3,15 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var Router = require('react-router')
 
+import { browserHistory, hashHistory } from 'react-router'
+var routes = require('./routes');
+import { render } from 'react-dom'
+
+
+var Router = require('react-router').Router;
 var Route = require('react-router').Route;
 var IndexRoute = require('react-router').IndexRoute;
-var hashHistory = require('react-router').hashHistory;
+
 
 {/* var routes = require('./routes')
 Router.run(routes, function(Handler) {
@@ -13,14 +19,9 @@ Router.run(routes, function(Handler) {
 })
 */}
 
-var homePage = require('./components/home.jsx')
-var App = require('./components/App');
+console.log(browserHistory);
 
-ReactDOM.render(
-  <Router history={hashHistory}>
-    <Route path="/" component={homePage}>
-      <IndexRoute component={homePage}></IndexRoute>
-    </Route>
-  </Router>,
-  App
+render(
+  <Router routes={routes} history={browserHistory}/>,
+  document.getElementById('content')
 );

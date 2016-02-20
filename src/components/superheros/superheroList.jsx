@@ -3,15 +3,8 @@
 var React = require('react');
 
 var SuperheroList = React.createClass({
-  propTypes: {
-    superheros: React.propTypes.array.isRequired
-  },
-  render : function() {
 
-    console.log('props');
-    console.log(this.props);
-    console.log('state:')
-    console.log(this.state);
+  render : function(){
     var createSuperheroRow = function(hero) {
       return (
         <tr key={hero.id}>

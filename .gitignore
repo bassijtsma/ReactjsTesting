@@ -65,6 +65,7 @@ dist
 build
 .idea
 
+node_modules/*
 
 chatbotconfig.txt
 credentials.py

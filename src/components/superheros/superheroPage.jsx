@@ -8,10 +8,11 @@ var superheroPage = React.createClass({
 
   getInitialState: function () {
     return { superheros: [] };
+    console.log('initial state finished')
   },
   componentDidMount: function() {
     if (this.isMounted()) {
-      this.setState({ superheros: SuperheroApi.getAllSuperheros() });
+      this.setState({ superheros: SuperheroApi.getAllSuperheros()});
   } else {
     console.log('superheropage component did not mount!');
     }

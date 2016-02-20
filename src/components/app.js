@@ -10,7 +10,7 @@ var App = React.createClass({
       <div>
         <Header />
         <div className="container">
-          <RouteHandler />
+          {this.props.children}
         </div>
       </div>
     );

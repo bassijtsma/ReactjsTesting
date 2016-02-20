@@ -16,6 +16,7 @@ var _clone = function(item) {
 
 var SuperheroApi = {
 	getAllSuperheros: function() {
+		console.log('returning the superheros');
 		return _clone(superheros);
 	},
 

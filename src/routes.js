@@ -1,26 +1,22 @@
 "use strict";
 
 var React = require('react');
+import { browserHistory } from 'react-router';
 
-var Router = require('react-router');
+var Router = require('react-router').Router;
 var Route = require('react-router').Route;
 var IndexRoute = require('react-router').IndexRoute;
-var hashHistory = require('react-router').hashHistory;
 
 
-var routes = React.createClass({
-  render: function(
-    return ;
-  )
-})
+var App = require('./components/app');
+var HomePage = require('./components/homePage.jsx');
+var AboutPage = require('./components/about/aboutPage.jsx');
+var SuperheroPage = require('./components/superheros/superheroPage.jsx')
 
-
-{/*
-  var routes = (
-  <Route name="app" path="/" handler={require('./components/app')}>
-    <DefaultRoute handler={require('./components/home.jsx')} />
-    <Route name="superheros" handler={require('./components/superheros/superheroPage.jsx')} />
-    <Route name="about" handler={require('./components/about/aboutPage.jsx')} />
+module.exports = (
+  <Route path="/" component={App}>
+    <IndexRoute component={HomePage}/>
+    <Route path="/about" component={AboutPage} />
+    <Route path="/hero" component={SuperheroPage} />
   </Route>
 )
-*/}
